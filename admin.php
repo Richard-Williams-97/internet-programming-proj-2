@@ -52,22 +52,22 @@ $conn=connectDB();
 
             <div class="form-group" >
               
-             <label class="col-sm-2 col-form-label checkbox-inline"><input type="checkbox" name="name" value="access">change username:</label>
+             <label class="col-sm-2 col-form-label checkbox-inline"><input type="checkbox" name="name" value="access" onclick="document.getElementById('chu').disabled=!this.checked;">change username:</label>
           		</br>
-              <input type="name" class="form-control" name="chguser" onblur="validateNameMsg(this)">
+              <input id="chu" type="name" class="form-control" name="chguser"  disabled="disabled" onblur="validateNameMsg(this)">
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 col-form-label checkbox-inline"><input type="checkbox" name="passy" value="access">change password:</label>
+              <label class="col-sm-2 col-form-label checkbox-inline"><input type="checkbox" name="passy" value="access" onclick="document.getElementById('chp').disabled=!this.checked;">change password:</label>
                </br>
-           <input type="password" name="chgpass" class="form-control" onblur="validatePassMsg(this)">
+           <input id="chp" type="password" name="chgpass" class="form-control" disabled="disabled" onblur="validatePassMsg(this)">
             </div>
 
 
             <div class="form-group">
-              <label class="col-sm-2 col-form-label checkbox-inline"><input type="checkbox" name="siteID" value="access">change siteID:</label> 
+              <label class="col-sm-2 col-form-label checkbox-inline"><input type="checkbox" name="siteID" value="access" onclick="document.getElementById('chs').disabled=!this.checked;">change siteID:</label> 
                </br>
-             <input type="text" class="form-control" name="chgsiteID">
+             <input id="chs" type="text" class="form-control" name="chgsiteID" disabled="disabled">
             </div> 
 
 
