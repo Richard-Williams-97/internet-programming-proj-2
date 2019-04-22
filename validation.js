@@ -1,9 +1,54 @@
-function validatePhone(phoneId)
+var str="";
+
+function validatePass(passId)
 {
-	if(/^[1-9]\d{2}-\d{3}-\d{4}$/.test(phoneId.value))
+	str="password: ";
+
+	var haslower=false;
+	var hasupper=false;
+	var hasdigit=false;
+	var length=false;
+
+		if (passId.value.length>8)
+		{
+			length=true;
+		}else
+		{
+			str+="must at least 8 characters, ";
+		}
+		if(/[a-z]/.test(passId.value))
+		{
+			haslower=true;
+		}else
+		{
+			str+="requires lowercase, ";
+		}
+		if(/[A-Z]/.test(passId.value))
+		{
+			hasupper=true;
+		}else
+		{
+			str+="requires Uppercase, ";
+		}
+		if(/[0-9]/.test(passId.value))
+		{
+			hasdigit=true;
+		}else
+		{
+			str+="requires digit, ";
+		}
+
+	
+
+	if(haslower==true && hasupper==true && hasdigit==true)
+	{
 		return true;
-	else
+	}else
+	{
 		return false;
+	}
+
+
 }
 
 function validateName(nameId)
@@ -14,18 +59,18 @@ function validateName(nameId)
 		return false;
 }
 
-function validatePhoneMsg(phoneId)
+function validatePassMsg(passId)
 {
-	errorPhoneMsg=document.getElementById("errorPhoneMsg"); //for paragraph shows error msg
-	if(validatePhone(phoneId))
+	errorPassMsg=document.getElementById("errorPassMsg"); //for paragraph shows error msg
+	if(validatePass(passId))
 	{
-		errorPhoneMsg.innerHTML="Valid phone number";
-		errorPhoneMsg.className="text-primary";
+		errorPassMsg.innerHTML="Valid password";
+		errorPassMsg.className="text-primary";
 	}
 	else
 	{
-		errorPhoneMsg.innerHTML="Not Valid";
-		errorPhoneMsg.className="text-danger"
+		errorPassMsg.innerHTML=str;
+		errorPassMsg.className="text-danger"
 	}
 }
 
@@ -48,7 +93,7 @@ function validate(form)
 {
 	nameId=document.getElementById("nameId");
 	phoneId=document.getElementById("phoneId");
-	if(validatePhone(phoneId) && validateName(nameId))
+	if(validatePass(phoneId) && validateName(nameId))
 	{
 		return true;
 	}
