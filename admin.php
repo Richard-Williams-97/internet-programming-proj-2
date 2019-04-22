@@ -8,15 +8,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
   <title>Admin page</title>
  </head>
  <body>
  <h1>Admin Access Center</h1>
  <?php
-// require_once("sqlSts.php");
 
-// $conn=connectDB();
+require_once("sqlsts.php");
+
+$conn=connectDB();
 // $username=$_POST['username'];
 // $pwd=$_POST['password'];
 
@@ -45,23 +48,26 @@
 
           
   <form action="./changeform.php" class="form-inline" method="POST" onsubmit="return validate(this)">
+            
+
             <div class="form-group" >
-              <label class="col-sm-2 col-form-label">change username:</label>
+              
+             <label class="col-sm-2 col-form-label checkbox-inline"><input type="checkbox" name="name" value="access">change username:</label>
           		</br>
               <input type="name" class="form-control" name="chguser" onblur="validateNameMsg(this)">
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 col-form-label">change password:</label>
+              <label class="col-sm-2 col-form-label checkbox-inline"><input type="checkbox" name="passy" value="access">change password:</label>
                </br>
            <input type="password" name="chgpass" class="form-control" onblur="validatePassMsg(this)">
             </div>
 
 
             <div class="form-group">
-              <label class="col-sm-2 col-form-label">change siteID:</label>
+              <label class="col-sm-2 col-form-label checkbox-inline"><input type="checkbox" name="siteID" value="access">change siteID:</label> 
                </br>
-              <input type="text" class="form-control" name="chgsiteID">
+             <input type="text" class="form-control" name="chgsiteID">
             </div> 
 
 
