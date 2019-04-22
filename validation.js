@@ -8,39 +8,39 @@ function validatePass(passId)
 	var hasupper=false;
 	var hasdigit=false;
 	var length=false;
-
-		if (passId.value.length>8)
-		{
-			length=true;
-		}else
-		{
-			str+="must at least 8 characters, ";
-		}
-		if(/[a-z]/.test(passId.value))
-		{
-			haslower=true;
-		}else
-		{
-			str+="requires lowercase, ";
-		}
-		if(/[A-Z]/.test(passId.value))
-		{
-			hasupper=true;
-		}else
-		{
-			str+="requires Uppercase, ";
-		}
-		if(/[0-9]/.test(passId.value))
-		{
-			hasdigit=true;
-		}else
-		{
-			str+="requires digit, ";
-		}
-
+		
+			if (passId.value.length>8)
+			{
+				length=true;
+			}else
+			{
+				str+="must at least 8 characters, ";
+			}
+			if(/[a-z]/.test(passId.value))
+			{
+				haslower=true;
+			}else
+			{
+				str+="requires lowercase, ";
+			}
+			if(/[A-Z]/.test(passId.value))
+			{
+				hasupper=true;
+			}else
+			{
+				str+="requires Uppercase, ";
+			}
+			if(/[0-9]/.test(passId.value))
+			{
+				hasdigit=true;
+			}else
+			{
+				str+="requires digit, ";
+			}
+		
 	
 
-	if(haslower==true && hasupper==true && hasdigit==true)
+	if(haslower==true && hasupper==true && hasdigit==true && length==true)
 	{
 		return true;
 	}else
