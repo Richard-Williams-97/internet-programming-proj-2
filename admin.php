@@ -1,3 +1,13 @@
+<?php
+ob_start();
+session_start();
+
+if(!isset($_SESSION['tblusers'])){
+  echo "<h1>Illegal Access</h1>";
+  exit(0);
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,21 +25,25 @@
  </head>
  <body>
  <h1>Admin Access Center</h1>
+
  <?php
 
 require_once("sqlsts.php");
 
 $conn=connectDB();
-// $username=$_POST['username'];
-// $pwd=$_POST['password'];
 
-// $query="SELECT * from tblusers WHERE UserLoginName=\"$username\" AND UserPW =SHA1(\"$pwd\")";
-// 	$result=$conn->query($query);
-// 	if(!$result) die("fatal error");
+$username=$_SESSION['UserLoginName'];
+$pwd=$_SESSION['UserPW'];
+$super=$_SESSION['IsSuperuser'];
+
+$query="SELECT * from tblusers WHERE UserLoginName=\"$username\"";
+
+	$result=$conn->query($query);
+	if(!$result) die("fatal error");
+	$row=$result->fetch_assoc();
 
 
-// echo "<h1>Welcome ".$result['Identity']." ".$result['Privilege']."</h1>";
-
+echo "<h3>Welcome ".$row['Identity']." ".$row['UserLoginName']."</h3>";
 
  ?>
 
@@ -65,9 +79,8 @@ $conn=connectDB();
 
 
             <div class="form-group">
-              <label class="col-sm-2 col-form-label checkbox-inline"><input type="checkbox" name="siteID" value="access" onclick="document.getElementById('chs').disabled=!this.checked;">change siteID:</label> 
-               </br>
-             <input id="chs" type="text" class="form-control" name="chgsiteID" disabled="disabled">
+              <p>siteID:</p>
+               <input type="checkbox" name="siteID" value="1">
             </div> 
 
 
